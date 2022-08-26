@@ -1,0 +1,158 @@
+:root {
+	--PurpleColor: #1f2140;
+	--DarkColor: #161a33;
+	--SalmonColor: #f14949;
+	--GrayColor: rgba(255, 255, 255, 0.5);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+}
+
+body {
+	height: 100%;
+	background: var(--PurpleColor);
+	color: #fff;
+}
+
+.container {
+	width: 35%;
+	height: 100vh;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 3rem;
+}
+
+.container .links {
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 80%;
+	height: 4rem;
+	border-radius: 28px;
+	background: var(--DarkColor);
+	position: relative;
+	padding: 0 0.5rem;
+	margin: 1rem 0;
+}
+
+.links .active-btn {
+	position: absolute;
+	top: 12%;
+	left: 0.5rem;
+	height: 76%;
+	width: calc((100% - 1rem) / 3);
+	background: var(--SalmonColor);
+	border-radius: 28px;
+	transition: all 0.3s ease;
+	z-index: 0;
+}
+
+.container .links li {
+	position: relative;
+	font-weight: 600;
+	color: var(--GrayColor);
+	cursor: pointer;
+	z-index: 1;
+}
+
+.container .timer {
+	height: 450px;
+	width: 450px;
+	background: linear-gradient(120deg, #171b36 40%, #2e366b);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 40px 40px 40px var(--DarkColor), -10px -10px 20px #002962;
+}
+
+.timer .inner {
+	width: 90%;
+	height: 90%;
+	background: var(--DarkColor);
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.inner svg {
+	position: absolute;
+	width: 95%;
+	height: 95%;
+	border-radius: 50%;
+	top: 2.5%;
+	left: 2.5%;
+	z-index: 0;
+}
+
+.inner circle {
+	fill: none;
+	stroke: var(--SalmonColor);
+	stroke-width: 20px;
+	stroke-dasharray: 1200;
+	stroke-dashoffset: 0;
+}
+
+@keyframes anim {
+	100% {
+		stroke-dashoffset: 1200;
+	}
+}
+
+.inner h1 {
+	font-size: 7em;
+	position: relative;
+	z-index: 1;
+}
+
+.inner h2 {
+	font-size: 1.5em;
+	font-weight: 600;
+	letter-spacing: 1.2rem;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+}
+
+.inner h2:active {
+	color: var(--GrayColor);
+}
+
+.settings i {
+	font-size: 2rem;
+	color: var(--GrayColor);
+	margin-top: 2rem;
+}
+
+/******************************/
+.active {
+	color: var(--DarkColor) !important;
+	font-weight: 700 !important;
+}
+
+.circle1 {
+	/* animation: anim 1500s 1 linear; */
+	animation: anim 60s 1 linear;
+}
+
+.circle2 {
+	/* animation: anim 300s 1 linear; */
+	animation: anim 60s 1 linear;
+}
+
+.circle3 {
+	/* animation: anim 3600s 1 linear; */
+	animation: anim 60s 1 linear;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/f789a69b3f.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./main.css" />
+		<title>Pomodoro-Technique</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>pomodoro</h1>
+			<ul class="links">
+				<div class="active-btn"></div>
+				<li class="active">pomodoro</li>
+				<li>short break</li>
+				<li>long break</li>
+			</ul>
+			<div class="timer">
+				<div class="inner">
+					<svg>
+						<circle
+							id="circle"
+							cx="192"
+							cy="192"
+							r="188"
+							stroke-linecap="round"
+						></circle>
+					</svg>
+					<h1><span id="minutes">00</span>:<span id="seconds">05</span></h1>
+					<h2 id="timer-switch">START</h2>
+				</div>
+			</div>
+			<div class="settings">
+				<i class="fa-solid fa-gear"></i>
+			</div>
+		</div>
+
+		<script src="./app.js"></script>
+	</body>
+</html>
