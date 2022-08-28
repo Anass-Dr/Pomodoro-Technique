@@ -1,3 +1,11 @@
+// Introduction :
+console.log("Powerd by :");
+console.log(
+	"%c ANASS DRISSI ",
+	"background: #222; color: #bada55; font-size: 2em;"
+);
+
+// Variables :
 const activeBtn = document.querySelector(".active-btn");
 const btns = document.querySelectorAll(".link");
 const timerSwitch = document.getElementById("timer-switch");
@@ -17,6 +25,7 @@ const applyBtn = document.getElementById("settings-btn");
 const countdownAudio = new Audio("./sounds/countdown.wav");
 let timerStatus = "off";
 let timerCircle = 1;
+let order = 1;
 let counter = 0;
 let timer1 = 25;
 let timer2 = 05;
@@ -29,13 +38,21 @@ const availableFonts = [
 ];
 const availableColors = ["#f14949", "cyan", "#d981f8"];
 
+// Handle Screen Sizes :
+screenResize();
+
+window.addEventListener("keypress", (e) => {
+	if (e.code == "Space") switchBtn();
+});
+
 // Micro Functions :
 function timerControler(state, rmCircle = false) {
 	if (state == "start") {
-		timerSwitch.textContent = "PAUSE";
+		timerSwitch.innerHTML = "PAUSE";
 		timerStatus = "on";
 		if (!rmCircle) circle.style.animationPlayState = "running";
-		timer("on");
+		if (order == 2) timer("on", "back");
+		else timer("on");
 	} else {
 		timerSwitch.textContent = "START";
 		if (state == "pause") {
@@ -52,15 +69,29 @@ function timerControler(state, rmCircle = false) {
 	}
 }
 
+// Config the circle size with the screen width :
+function screenResize() {
+	if (screen.width < 600) {
+		circle.setAttribute("cx", "129");
+		circle.setAttribute("cy", "129");
+		circle.setAttribute("r", "120");
+	} else {
+		circle.setAttribute("cx", "192");
+		circle.setAttribute("cy", "192");
+		circle.setAttribute("r", "188");
+	}
+}
+
 // Handle Buttons Cliks :
 btns.forEach((e, i, arr) =>
 	e.addEventListener("click", function () {
-		if (timerStatus != "off") timerControler("off");
-		timerCircle = i + 1;
-		circle.style.animationDuration = duration[i] * 60 + "s";
 		if (!e.classList.contains("active")) {
+			if (timerStatus != "off") timerControler("off");
+			timerCircle = i + 1;
 			arr.forEach((e) => e.classList.remove("active"));
 			e.classList.add("active");
+			if (order != timerCircle) timerSwitch.classList.add("hidden");
+			else timerSwitch.classList.remove("hidden");
 			seconds.textContent = "00";
 			if (i === 0) {
 				activeBtn.style.left = "0.5rem";
@@ -77,7 +108,7 @@ btns.forEach((e, i, arr) =>
 );
 
 // Start / Stop Timer :
-timerSwitch.addEventListener("click", function () {
+function switchBtn() {
 	if (timerStatus == "off") {
 		circle.classList.add("circle" + timerCircle);
 		timerControler("start", true);
@@ -86,7 +117,9 @@ timerSwitch.addEventListener("click", function () {
 	} else {
 		timerControler("start");
 	}
-});
+}
+
+timerSwitch.addEventListener("click", switchBtn);
 
 // Set the Timer Clock :
 function timer(action, way = "forwards") {
@@ -125,6 +158,7 @@ function switchCircle(way) {
 		timerCircle = way === "forwards" ? 2 : 1;
 	}
 	i = timerCircle - 1;
+	order = timerCircle;
 	circle.style.animationDuration = duration[i] * 60 + "s";
 	btns.forEach((e) => e.classList.remove("active"));
 	btns[i].classList.add("active");
@@ -228,9 +262,11 @@ applyBtn.addEventListener("click", () => {
 	counter = 0;
 
 	// Stop the Timer :
-	timerControler("off");
+	if (timerStatus != "off") timerControler("off");
 	seconds.textContent = "00";
 
 	// .
 	hideSettings();
 });
+
+window.onresize = screenResize;
