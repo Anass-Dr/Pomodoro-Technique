@@ -1,130 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script
-			src="https://kit.fontawesome.com/f789a69b3f.js"
-			crossorigin="anonymous"
-		></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Inter:wght@400;600;700&family=Lora:wght@400;600;700&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="./main.css" />
-		<title>Pomodoro-Technique</title>
-	</head>
-	<body>
-		<div class="container">
-			<h1>pomodoro</h1>
-			<ul class="links">
-				<div class="active-btn"></div>
-				<li class="link active">pomodoro</li>
-				<li class="link">short break</li>
-				<li class="link">long break</li>
-			</ul>
-			<div class="timer">
-				<div class="inner">
-					<svg>
-						<circle
-							id="circle"
-							cx="192"
-							cy="192"
-							r="188"
-							stroke-linecap="round"
-						></circle>
-					</svg>
-					<h1><span id="minutes">25</span>:<span id="seconds">00</span></h1>
-					<h2 id="timer-switch">&nbsp;START</h2>
-				</div>
-			</div>
-			<div class="footer">
-				<i class="fa-solid fa-gear"></i>
-				<div class="shadow hidden"></div>
-				<div class="settings hidden">
-					<div class="head">
-						<h2>Settings</h2>
-						<i class="fa-solid fa-xmark"></i>
-					</div>
-					<hr />
-					<div class="body">
-						<div class="h3">TIME (MINUTES)</div>
-						<ul class="time">
-							<li>
-								<label for="pomodoro">pomodoro</label>
-								<div class="number-input">
-									<input
-										type="number"
-										class="num-input"
-										name="pomodoro"
-										id="pomodoro"
-										value="25"
-									/>
-									<div class="arrows">
-										<i class="fa-solid fa-angle-up step-up"></i>
-										<i class="fa-solid fa-chevron-down step-down"></i>
-									</div>
-								</div>
-							</li>
-							<li>
-								<label for="short-break">short break</label>
-								<div class="number-input">
-									<input
-										type="number"
-										class="num-input"
-										name="short-break"
-										id="short-break"
-										value="5"
-									/>
-									<div class="arrows">
-										<i class="fa-solid fa-angle-up step-up"></i>
-										<i class="fa-solid fa-chevron-down step-down"></i>
-									</div>
-								</div>
-							</li>
-							<li>
-								<label for="long-break">long break</label>
-								<div class="number-input">
-									<input
-										type="number"
-										class="num-input"
-										name="long-break"
-										id="long-break"
-										value="15"
-									/>
-									<div class="arrows">
-										<i class="fa-solid fa-angle-up step-up"></i>
-										<i class="fa-solid fa-chevron-down step-down"></i>
-									</div>
-								</div>
-							</li>
-						</ul>
-						<hr />
-						<div class="font">
-							<span>FONT</span>
-							<ul>
-								<li class="active-font font-item">Aa</li>
-								<li class="font-item">Aa</li>
-								<li class="font-item">Aa</li>
-							</ul>
-						</div>
-						<hr />
-						<div class="color">
-							<span>COLOR</span>
-							<ul>
-								<li class="color-item active-color"></li>
-								<li class="color-item"></li>
-								<li class="color-item"></li>
-							</ul>
-						</div>
-						<button id="settings-btn">Apply</button>
-					</div>
-				</div>
-			</div>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/f789a69b3f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&family=Inter:wght@400;600;700&family=Lora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Pomodoro-Technique</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>pomodoro</h1>
+      <ul class="links">
+        <div class="active-btn"></div>
+        <li class="link active">pomodoro</li>
+        <li class="link">short break</li>
+        <li class="link">long break</li>
+      </ul>
+      <div class="timer">
+        <div class="inner">
+          <svg>
+            <circle
+              id="circle"
+              cx="192"
+              cy="192"
+              r="188"
+              stroke-linecap="round"
+            ></circle>
+          </svg>
+          <h1><span id="minutes">25</span>:<span id="seconds">00</span></h1>
+          <h2 id="timer-switch">START</h2>
+        </div>
+      </div>
+      <div class="footer">
+        <i class="fa-solid fa-gear"></i>
+        <div class="shadow hidden"></div>
+        <div class="settings hidden">
+          <div class="head">
+            <h2>Settings</h2>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <hr />
+          <div class="body">
+            <div class="h3">TIME (MINUTES)</div>
+            <ul class="time">
+              <li>
+                <label for="pomodoro">pomodoro</label>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    class="num-input"
+                    name="pomodoro"
+                    id="pomodoro"
+                    value="25"
+                  />
+                  <div class="arrows">
+                    <i class="fa-solid fa-angle-up step-up"></i>
+                    <i class="fa-solid fa-chevron-down step-down"></i>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <label for="short-break">short break</label>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    class="num-input"
+                    name="short-break"
+                    id="short-break"
+                    value="5"
+                  />
+                  <div class="arrows">
+                    <i class="fa-solid fa-angle-up step-up"></i>
+                    <i class="fa-solid fa-chevron-down step-down"></i>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <label for="long-break">long break</label>
+                <div class="number-input">
+                  <input
+                    type="number"
+                    class="num-input"
+                    name="long-break"
+                    id="long-break"
+                    value="15"
+                  />
+                  <div class="arrows">
+                    <i class="fa-solid fa-angle-up step-up"></i>
+                    <i class="fa-solid fa-chevron-down step-down"></i>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <hr />
+            <div class="font">
+              <span>FONT</span>
+              <ul>
+                <li class="active-font font-item">Aa</li>
+                <li class="font-item">Aa</li>
+                <li class="font-item">Aa</li>
+              </ul>
+            </div>
+            <hr />
+            <div class="color">
+              <span>COLOR</span>
+              <ul>
+                <li class="color-item active-color"></li>
+                <li class="color-item"></li>
+                <li class="color-item"></li>
+              </ul>
+            </div>
+            <button id="settings-btn">Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<script src="./app.js"></script>
-	</body>
+    <script src="./app.js"></script>
+  </body>
 </html>
